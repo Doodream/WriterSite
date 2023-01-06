@@ -6,10 +6,6 @@ import styles from '../../styles/Home.module.css'
 
 const Home: NextPage = () => {
 
-  useEffect(()=>{
-    console.log("111")
-  },[])
-
   return (
     <div className={styles.container}>
       <Head>
