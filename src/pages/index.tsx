@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 
 const Home: NextPage = () => {
+
+  useEffect(()=>{
+    console.log("111")
+  },[])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -51,7 +56,6 @@ const Home: NextPage = () => {
           </a>
         </div>
       </main>
-
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
