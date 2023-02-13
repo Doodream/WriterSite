@@ -1,7 +1,11 @@
 import React, { PropsWithChildren } from 'react'
 
 const Layout = ({ children }: PropsWithChildren) => {
-  return <div className="absolute h-[100vh] w-[100vw]">{children}</div>
+  return (
+    <main className="flex h-screen w-screen justify-center bg-primary-light">
+      <div className="h-screen w-screen max-w-[576px] bg-white">{children}</div>
+    </main>
+  )
 }
 
 export default Layout
