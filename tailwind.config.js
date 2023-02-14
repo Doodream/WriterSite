@@ -2,12 +2,16 @@ const rem0_10 = { ...Array.from(Array(11)).map((_, i) => `${i / 10}rem`) }
 const rem0_100 = { ...Array.from(Array(101)).map((_, i) => `${i / 10}rem`) }
 const rem0_200 = { ...Array.from(Array(201)).map((_, i) => `${i / 10}rem`) }
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
+    fontFamily: {
+      bmjua: ['BMJUA']
+    },
     colors: {
       transparent: 'transparent',
       black: '#000',
@@ -34,9 +38,10 @@ module.exports = {
       success: '#3C8505'
     },
     screens: {
-      mobile: '375px',
+      mobile: '576px',
       desktop: '1024px'
     },
+
     extend: {
       borderWidth: rem0_10,
       fontSize: rem0_100,
