@@ -3,7 +3,7 @@ import React from 'react'
 import '@/styles/globals.css'
 import Layout from '@/components/common/layout'
 import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import * as process from 'process'
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -17,7 +17,6 @@ const firebaseConfig = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const app = initializeApp(firebaseConfig)
-  // const analytics = getAnalytics(app)
   return (
     <>
       <Layout>
