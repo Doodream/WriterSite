@@ -21,13 +21,19 @@ jobs:
           script: |
             async function findMergedBranch(commitSha) {
               const { owner, repo } = context.repo;
-              const { data: commit } = await github.rest.repos.getCommit({
-                owner,
-                repo,
-                ref: commitSha
-              });
+              let commit;
+              try {
+                commit = await github.rest.repos.getCommit({
+                  owner,
+                  repo,
+                  ref: commitSha
+                });
+              } catch (error) {
+                console.error(`Cannot find commit with SHA: ${commitSha}`);
+                return null;
+              }
 
-              const mergeCommit = commit.parents.length === 2 ? commit : null;
+              const mergeCommit = commit.data.parents.length === 2 ? commit.data : null;
               if (!mergeCommit) {
                 return null;
               }
