@@ -16,7 +16,7 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const { repo: { owner, repo }, pull_request: { number } } = context;
+            const { repo: { owner, repo }, number } = github.event.pull_request;
             await github.rest.issues.addLabels({
               owner,
               repo,
