@@ -1,11 +1,9 @@
-name: Label Merged in Dev Branch Pull Requests
+name: Label Dev Merged Branches on Main PRs
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  push:
+    branches:
+      - dev
 
 jobs:
   label-dev-merged-pr:
@@ -13,27 +11,43 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Check if PR branch is merged with dev
-        id: check_merged
-        uses: technote-space/git-merged@v1
         with:
-          TARGET_BRANCH: dev
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Label dev merged Pull Requests
-        if: steps.check_merged.outputs.merged == 'true' && github.event.pull_request.base.ref == 'main'
+      - name: Label Dev Merged Branches on Main PRs
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
-            const number = context.issue.number;
-            
-            await github.rest.issues.addLabels({
+            const branch = context.ref.split('/').pop();
+
+            if (branch !== 'dev') {
+              return;
+            }
+
+            const { data: commits } = await github.rest.repos.listCommits({
               owner,
               repo,
-              issue_number: number,
-              labels: ['dev']
+              sha: branch
             });
+
+            const mergedBranch = commits[0].commit.message.split(' ')[1].slice(1, -1);
+
+            const { data: prs } = await github.rest.pulls.list({
+              owner,
+              repo,
+              state: 'open',
+              head: `${owner}:${mergedBranch}`,
+              base: 'main'
+            });
+
+            if (prs.length > 0) {
+              const mainPrNumber = prs[0].number;
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: mainPrNumber,
+                labels: ['dev']
+              });
+            }
