@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const app = initializeApp(firebaseConfig)
-  console.log('empty_commit_3')
+  console.log('empty_commit_4')
   return (
     <>
       <Layout>
