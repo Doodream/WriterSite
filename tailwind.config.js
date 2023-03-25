@@ -6,6 +6,9 @@ const rem0_200 = { ...Array.from(Array(201)).map((_, i) => `${i / 10}rem`) }
 module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      KoddiUDOnGothic: ['KoddiUDOnGothic']
+    },
     screens: {
       mobile: '576px',
       desktop: '1024px'
