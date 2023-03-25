@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import Header from '@/components/common/header'
+import Header from '@/components/common/Header'
 import SideBar from '@/components/common/SideBar'
 
 const Layout = ({ children }: PropsWithChildren): JSX.Element => {
