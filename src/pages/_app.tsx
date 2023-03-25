@@ -1,11 +1,11 @@
 import type { AppProps } from 'next/app'
 import React, { useState } from 'react'
-import '@/styles/globals.css'
+import '../../styles/globals.css'
 import { initializeApp } from 'firebase/app'
 import * as process from 'process'
 import { Hydrate, QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import Layout from '@/components/common/layout'
+import Layout from '@/components/common/Layout'
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,

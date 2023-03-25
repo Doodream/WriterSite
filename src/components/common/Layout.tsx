@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from 'react'
-import Header from '@/components/common/header'
+import Header from '@/components/common/Header'
 import SideBar from '@/components/common/SideBar'
 
 const Layout = ({ children }: PropsWithChildren): JSX.Element => {
   return (
-    <div className="drawer">
+    <div className="drawer font-['KoddiUDOnGothic']">
       <input id="sidebar-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <Header />
