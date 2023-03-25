@@ -22,7 +22,8 @@
     "react-hooks",
     "jsx-a11y",
     "import",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "unused-imports"
   ],
   "settings": {
     "import/resolver": {
@@ -35,6 +36,21 @@
     }
   },
   "rules": {
+    "@typescript-eslint/ban-ts-comment": "warn", // ts-ignore 허용
+    "jsx-a11y/label-has-associated-control": "off", // 레이블 태그에 텍스트 레이블과 관련 컨트롤이 있는지 확인 (https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-associated-control.md)
+    "jsx-a11y/no-noninteractive-tabindex": "off", // Tab 키 탐색은 상호 작용할 수 있는 페이지의 요소로 제한 (https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-tabindex.md)
+    "jsx-a11y/no-static-element-interactions": "off", //  목적이 불분명한 div 혹은 span에 role이 없는 경우 (https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-static-element-interactions.md)
+    "jsx-a11y/click-events-have-key-events": "off", //keyboard event 없이 onClick만 단독으로 사용된 경우 (https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md)
+    "no-unused-vars": "off",
+    "jsx-a11y/anchor-is-valid": "off", // a태그 유효한 href 기능 비활성화
+    "unused-imports/no-unused-imports": "error",
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ]
   },
   "overrides": [
     {
