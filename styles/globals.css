@@ -5,9 +5,18 @@
 @tailwind utilities;
 @font-face {
     font-family: "KoddiUDOnGothic";
-    src: url("../public/fonts/KoddiUDOnGothic-Regular.woff2") ;
     src: url("../public/fonts/KoddiUDOnGothic-Bold.woff2") ;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "KoddiUDOnGothic";
+    src: url("../public/fonts/KoddiUDOnGothic-Regular.woff2") ;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "KoddiUDOnGothic";
     src: url("../public/fonts/KoddiUDOnGothic-ExtraBold.woff2") ;
+    font-weight: 800;
 }
 
 @layer base {

@@ -1,29 +1,36 @@
 import React from 'react'
+import Link from 'next/link'
 
 const SideBar = () => {
   return (
-    <div className="drawer-side">
-      <label htmlFor="sidebar-drawer" className="drawer-overlay" />
-      <ul className="menu flex h-full w-150 flex-col justify-between bg-base-100 pt-20 shadow-md">
-        <li>
-          <a>
-            <span className="ml-20 text-30">YeJu</span>
-          </a>
-        </li>
-        <div className="mb-20">
-          <li>
-            <a>
-              <span className="ml-20 ">CV</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span className="ml-20 ">Critic / Review</span>
-            </a>
-          </li>
+    <aside className="flex h-screen w-[350px] flex-col py-[20px] pl-[20px]">
+      <h1 className="text-xl font-bold">노예주 | Yeju Roh</h1>
+      <nav className="flex h-full flex-col ">
+        <div className="flex h-[15%] flex-col justify-end">
+          <Link href="/" className="">
+            CV
+          </Link>
+          <Link href="/">WORKS</Link>
         </div>
-      </ul>
-    </div>
+        <div className="flex h-[65%] flex-col justify-end">
+          <Link href="/" className="">
+            NOTES
+          </Link>
+          <Link href="/">DRAWINGS</Link>
+        </div>
+        <div className="flex h-[20%] flex-col justify-end ">
+          <Link href="/" className="">
+            EXHIBITION
+          </Link>
+          <Link href="/">PROJECT</Link>
+          <Link href="/">PUBLICATION</Link>
+        </div>
+      </nav>
+      <div className="mt-[100px] flex flex-col">
+        <a href="mailto:shdpwn@gmail.com">shdpwn@gmail.com</a>
+        <a href="https://www.instagram.com/yeju_roh/">@yeju_roh</a>
+      </div>
+    </aside>
   )
 }
 

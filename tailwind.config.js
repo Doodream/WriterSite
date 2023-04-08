@@ -10,7 +10,8 @@ module.exports = {
       KoddiUDOnGothic: ['KoddiUDOnGothic']
     },
     screens: {
-      mobile: '576px',
+      mobile: '100px',
+      tablet: '768px',
       desktop: '1024px'
     },
     extend: {

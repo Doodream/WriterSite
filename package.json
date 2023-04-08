@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.16",
+    "classnames": "^2.3.2",
     "daisyui": "^2.51.5",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
@@ -64,7 +65,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.7.2",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "firebase": "^9.17.1",
+    "firebase": "^9.19.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.17",
