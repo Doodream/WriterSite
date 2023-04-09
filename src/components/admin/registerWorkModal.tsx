@@ -61,7 +61,7 @@ const RegisterWorkModal = ({
       <h1>{isEdit ? '작품 수정하기' : '작품 등록하기'}</h1>
       <form onSubmit={onSubmit} className="flex w-full flex-col gap-5">
         <div>
-          <label htmlFor="siteName" className="label">
+          <label htmlFor="workName" className="label">
             <span className="label-text text-base-content ">작품 이름</span>
           </label>
           <input
@@ -76,10 +76,11 @@ const RegisterWorkModal = ({
           />
         </div>
         <div>
-          <label htmlFor="siteName" className="label">
+          <label htmlFor="imageInput" className="label">
             <span className="label-text text-base-content ">작품 그림</span>
           </label>
           <input
+            id="imageInput"
             type="file"
             className="file-input w-full  border-1 border-gray-600"
             onChange={(e) => handleImageUpload(e)}

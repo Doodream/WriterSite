@@ -3,8 +3,9 @@ import { WorkRes, addImage, addWork, getWorks, updateWork } from '@/api/works'
 import { ChangeEvent, useMemo, useState } from 'react'
 import useModal from '@/hooks/common/useModal'
 import { RegisterWorkModalDataType } from '@/components/admin/registerWorkModal'
+import Link from 'next/link'
 
-const useAdminContainer = () => {
+const useAdminWorkContainer = () => {
   const registerWorkModalProps = useModal<RegisterWorkModalDataType>()
   const { data: works, refetch: refetchWorks } = useQuery('works', getWorks)
   const [isEdit, setIsEdit] = useState(false)
@@ -44,7 +45,7 @@ const useAdminContainer = () => {
     }))
   }
 
-  const adminsContents = useMemo(() => {
+  const adminWorkContents = useMemo(() => {
     return works?.map((row, index) => ({
       row: [
         {
@@ -81,13 +82,16 @@ const useAdminContainer = () => {
         },
         {
           content: (
-            <button
+            <Link
               className="btn"
-              onClick={async () => {
-                // addWork()
+              href={{
+                pathname: '/admin/works/[id]',
+                query: {
+                  id: row.id
+                }
               }}>
-              작업물 추가하기
-            </button>
+              작업물 관리하기
+            </Link>
           ),
           key: 'workList'
         }
@@ -95,7 +99,7 @@ const useAdminContainer = () => {
     }))
   }, [works])
   return {
-    adminsContents,
+    adminWorkContents,
     handleRegisterWork,
     registerWorkModalProps,
     handleImageUpload,
@@ -105,4 +109,4 @@ const useAdminContainer = () => {
   }
 }
 
-export default useAdminContainer
+export default useAdminWorkContainer
