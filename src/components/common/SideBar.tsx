@@ -6,19 +6,19 @@ const SideBar = () => {
     <aside className="flex h-screen w-[350px] flex-col py-[20px] pl-[20px]">
       <h1 className="text-xl font-bold">노예주 | Yeju Roh</h1>
       <nav className="flex h-full flex-col ">
-        <div className="flex h-[15%] flex-col justify-end">
+        <div className="flex h-[15%] flex-col justify-end gap-5">
           <Link href="/" className="">
             CV
           </Link>
-          <Link href="/">WORKS</Link>
+          <Link href="/works">WORKS</Link>
         </div>
-        <div className="flex h-[65%] flex-col justify-end">
+        <div className="flex h-[65%] flex-col justify-end gap-5">
           <Link href="/" className="">
             NOTES
           </Link>
           <Link href="/">DRAWINGS</Link>
         </div>
-        <div className="flex h-[20%] flex-col justify-end ">
+        <div className="flex h-[20%] flex-col justify-end gap-5">
           <Link href="/" className="">
             EXHIBITION
           </Link>

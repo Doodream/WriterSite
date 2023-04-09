@@ -1,18 +1,18 @@
-import useAdminContainer from '@/containers/useAdminContainer'
+import useAdminWorkContainer from '@/containers/useAdminWorkContainer'
 import Table from '@/components/common/tables'
 import Modal from '@/components/common/modal'
 import RegisterWorkModal from '@/components/admin/registerWorkModal'
 
-const PageAdmin = () => {
+const PageAdminWork = () => {
   const {
-    adminsContents,
+    adminWorkContents,
     handleRegisterWork,
     registerWorkModalProps,
     handleImageUpload,
     isEdit,
     handleOpenRegisterModal,
     handleUpdateWork
-  } = useAdminContainer()
+  } = useAdminWorkContainer()
   return (
     <div className="flex h-screen w-screen  justify-center">
       <div className="w-full px-[100px] pt-[100px]">
@@ -32,11 +32,11 @@ const PageAdmin = () => {
                 key: 'update'
               },
               {
-                title: '작업물 추가',
+                title: '작업물 관리',
                 key: 'workList'
               }
             ]}
-            contents={adminsContents}
+            contents={adminWorkContents}
           />
         </Table>
       </div>
@@ -53,4 +53,4 @@ const PageAdmin = () => {
   )
 }
 
-export default PageAdmin
+export default PageAdminWork
